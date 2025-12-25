@@ -1,139 +1,106 @@
-baseURL: "https://examplesite.com/"
-title: ExampleSite
-pagination:
-  pagerSize: 5
-
+baseURL: "https://YOUR-USERNAME.github.io/YOUR-REPO/"
+title: "Nhật Duy Blog"
 theme: PaperMod
 
+languageCode: "vi-vn"
+defaultContentLanguage: "vi"
 enableRobotsTXT: true
+
+pagination:
+  pagerSize: 6
+
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 
 minify:
-  disableXML: true
   minifyOutput: true
 
-params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON   # cần cho search của PaperMod
 
+params:
+  env: production
+
+  # Thông tin SEO cơ bản
+  title: "Nhật Duy Blog"
+  description: "Blog cá nhân chia sẻ lập trình mạng, Java và JavaScript (tiếng Việt)."
+  keywords: ["Lập trình mạng", "Java", "JavaScript", "Socket", "TCP", "UDP", "RMI", "HTTP", "Web"]
+  author: "Nhật Duy"
+
+  # Giao diện tối giản
+  defaultTheme: auto
+  disableThemeToggle: false
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowWordCount: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
-  ShowWordCount: true
+  ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
+  disableSpecial1stPost: true   # tối giản: không làm nổi bài đầu
   hidemeta: false
   hideSummary: false
-  showtoc: false
-  tocopen: false
 
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
-
-  label:
-    text: "Home"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
-
-  # profile-mode
+  # Trang chủ: Profile cá nhân (đúng yêu cầu "giới thiệu profile")
   profileMode:
-    enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
+    enabled: true
+    title: "Xin chào, mình là Nhật Duy 👋"
+    subtitle: "Sinh viên HUTECH | Blog chia sẻ Lập trình mạng + Java + JavaScript"
+    imageUrl: "img/anhdaidien.png"   
+    imageWidth: 140
+    imageHeight: 140
+    imageTitle: "Nhat Duy"
     buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
+      - name: "Blog"
+        url: "blog/"
+      - name: "Giới thiệu"
+        url: "about/"
 
-  # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
-
+  # Social
   socialIcons:
-    - name: x
-      url: "https://x.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/YOUR-USERNAME"
+    - name: email
+      url: "mailto:YOURMAIL@gmail.com"
 
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
-
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
-
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-
-  # for search
-  # https://fusejs.io/api/options.html
+  # Search (PaperMod)
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    threshold: 0.35
+    minMatchCharLength: 2
+    limit: 10
     keys: ["title", "permalink", "summary", "content"]
+
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
+    - identifier: home
+      name: Home
+      url: /
       weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
+    - identifier: blog
+      name: Blog
+      url: /blog/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
+    - identifier: categories
+      name: Chuyên mục
+      url: /categories/
       weight: 30
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+    - identifier: tags
+      name: Thẻ
+      url: /tags/
+      weight: 40
+    - identifier: about
+      name: Giới thiệu
+      url: /about/
+      weight: 50
+
+# Highlight code đẹp cho bài lập trình
 pygmentsUseClasses: true
 markup:
   highlight:
     noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    lineNos: true
