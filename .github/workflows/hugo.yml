@@ -31,7 +31,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --cleanDestinationDir
+        run: hugo --minify --cleanDestinationDir --ignoreCache --gc
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
