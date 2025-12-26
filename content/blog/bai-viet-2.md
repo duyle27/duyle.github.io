@@ -1,10 +1,10 @@
 ---
-title: "Bài 2: Port là gì? Tại sao Server hay dùng cổng 8080?"
+title: "Bài 2: Kiến thức nền tảng?"
 date: 2025-12-16
 weight: 2
 draft: false
 tags: ["Network", "Theory"]
-summary: "Hiểu vai trò của Port trong lập trình mạng và lý do cổng 8080 thường được sử dụng."
+summary: "MẠNG MÁY TÍNH & INTERNET."
 ---
 
 Trong lập trình mạng, nếu **IP** được xem như địa chỉ nhà của một máy tính trong mạng,  

@@ -1,10 +1,10 @@
 ---
-title: "Bài 1: Làm sao biết máy mình đang dùng IP gì trong Java?"
+title: "Bài 1: Tổng quan khoá học"
 date: 2025-12-15
 weight: 1
 draft: false
 tags: ["Java", "Network"]
-summary: "Sử dụng class InetAddress để định danh máy tính."
+summary: "GIỚI THIỆU HỌC PHẦN."
 ---
 
 Trong lập trình mạng, trước khi kết nối, ta phải biết "địa chỉ nhà" (IP) của mình và đối phương. Java cung cấp class `InetAddress` để làm việc này.

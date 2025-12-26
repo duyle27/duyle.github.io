@@ -328,12 +328,13 @@ body.page-about .post-content h3 {
   text-align: center;
 }
 
-body.page-about .post-content img {
-  display: block;
-  width: min(920px, 100%);
-  margin: 26px auto;
-  border-radius: 18px;
-  box-shadow: 0 18px 48px rgba(0,0,0,.25);
+body.about .post-content img{
+  width: min(420px, 100%);
+  max-height: 560px;        /* QUAN TRỌNG */
+  object-fit: cover;        /* cắt trên/dưới */
+  margin: 22px auto;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.22);
 }
 body .post-header { text-align: center; }
 /* Center breadcrumb "Trang chủ" */
@@ -512,5 +513,187 @@ body.taxonomy-tags .terms-tags a sup {
     position: static;
   }
 }
+/* ===== Certificates (Categories page) ===== */
+.cert-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.cert-item{
+  display:flex;
+  gap:16px;
+  padding:16px;
+  border-radius:16px;
+  background: var(--entry);
+  border:1px solid var(--border);
+  text-decoration:none;
+}
+
+.cert-item:hover{
+  transform: translateY(-2px);
+  transition: .15s ease;
+}
+
+.cert-item img{
+  width:110px;
+  height:110px;
+  object-fit:contain;
+  border-radius:12px;
+  background:#fff;
+  padding:10px;
+  flex: 0 0 auto;
+}
+
+.cert-info h3{
+  margin:0 0 6px;
+  font-size:18px;
+  font-weight:850;
+}
+
+.cert-info p{
+  margin:0 0 8px;
+  font-size:14px;
+  opacity:.85;
+  line-height:1.6;
+}
+
+.cert-link{
+  font-weight:750;
+  opacity:.9;
+}
+
+/* Mobile: xếp dọc */
+@media (max-width: 900px){
+  .cert-item{ flex-direction:column; align-items:center; text-align:center; }
+}
 
 
+/* ===== Certificates page: canh đều 2 cột ===== */
+
+/* 1) 3 card chứng chỉ đều nhau + gap đẹp */
+.cert-list{
+  gap: 18px;                 /* tăng khoảng cách giữa 3 chứng chỉ */
+}
+
+.cert-item{
+  min-height: 132px;         /* ép 3 item cao gần như nhau */
+  align-items: center;
+}
+
+/* phần text chiếm đều, không làm item cao thêm */
+.cert-info{
+  flex: 1;
+}
+
+/* 2) Card bên phải không bị dài hơn: bỏ sticky + giới hạn chiều cao */
+.tags-card{
+  position: static !important;
+  max-height: none;     /* bỏ giới hạn chiều cao */
+  overflow: visible; 
+  padding: 14px;
+}
+
+/* nếu muốn vẫn giữ sticky nhưng không dài: dùng option này thay vì position:static
+.tags-card{
+  position: sticky;
+  top: 90px;
+  max-height: 460px;
+  overflow: auto; 
+}
+*/
+
+/* 3) Ảnh trong card phải gọn hơn để card thấp lại */
+.tags-avatar{
+ width: 220px;
+  height: 220px;
+}
+
+/* 4) text gọn hơn để card thấp */
+.tags-card-sub{
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.tags-card-links a{
+  padding: 7px 10px;
+}
+
+/* =========================
+   HEADER MENU – đẹp + sống động (PaperMod)
+   ========================= */
+
+/* khoảng cách menu */
+#menu {
+  gap: 10px;
+}
+
+/* link menu */
+#menu a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;              /* pill */
+  text-decoration: none !important;
+  transition: transform .15s ease, background .15s ease, opacity .15s ease;
+  opacity: .88;
+}
+
+/* hover: nổi nhẹ + nền */
+#menu a:hover {
+  background: rgba(255,255,255,.06);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* click: nhấn xuống */
+#menu a:active {
+  transform: translateY(0px) scale(.98);
+}
+
+/* underline animation */
+#menu a::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .18s ease;
+  opacity: .9;
+}
+
+/* hover hiện underline */
+#menu a:hover::after {
+  transform: scaleX(1);
+}
+
+/* TRANG ĐANG ACTIVE (PaperMod thường set class="active" hoặc aria-current) */
+#menu a.active,
+#menu a[aria-current="page"] {
+  background: rgba(255,255,255,.08);
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* underline luôn bật khi active */
+#menu a.active::after,
+#menu a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Mobile: đỡ chật */
+@media (max-width: 768px) {
+  #menu {
+    gap: 6px;
+  }
+  #menu a {
+    padding: 7px 10px;
+  }
+}
