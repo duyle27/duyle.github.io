@@ -1,0 +1,46 @@
+{{- define "main" -}}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+    <div class="page-description">{{ .Description }}</div>
+  {{- end }}
+</header>
+
+<div class="tags-split">
+  <!-- LEFT: tags list -->
+  <div class="tags-left">
+    <div class="tags-list">
+      {{- range $term, $pages := .Data.Terms.Alphabetical -}}
+        <a class="tag-row" href="{{ $pages.Page.RelPermalink }}">
+          <span class="tag-name">{{ $pages.Page.Title }}</span>
+          <span class="tag-count">{{ len $pages.Pages }}</span>
+        </a>
+      {{- end -}}
+    </div>
+  </div>
+
+  <!-- RIGHT: profile / image -->
+  <aside class="tags-right">
+    <div class="tags-card">
+      <img
+        class="tags-avatar"
+        src="/img/anh2.jpg"
+        alt="Lê Hoàng Nhật Duy"
+      />
+
+      <div class="tags-card-title">Nhật Duy</div>
+      <div class="tags-card-sub">
+        Sinh viên HUTECH • Hệ thống thông tin<br/>
+        Viết về Lập trình mạng • Java • JavaScript
+      </div>
+
+      <div class="tags-card-links">
+        <a href="https://github.com/duyle27" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.facebook.com/nhatduy.lehoangnhatduy/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lehoangnhatduy1234567@gmail.com"
+           target="_blank" rel="noopener">Email</a>
+      </div>
+    </div>
+  </aside>
+</div>
+{{- end -}}

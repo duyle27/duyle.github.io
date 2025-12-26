@@ -1,0 +1,107 @@
+{{ define "main" }}
+
+<section class="pm-hero-vertical">
+
+  <!-- TEXT TRÊN -->
+  <div class="pm-hero-text">
+    <p class="pm-tag">LÊ HOÀNG NHẬT DUY </p>
+
+    <h1 class="pm-title">
+      LÀM VIỆC ÂM THẦM ĐỂ KẾT QUẢ LÊN TIẾNG
+    </h1>
+
+    <p class="pm-sub">
+      Java Backend & Network · Sinh viên CNTT HUTECH<br>
+      Blog chia sẻ TCP / UDP / Socket / RMI · Java · JavaScript
+    </p>
+
+    <div class="pm-actions">
+      <a href="/blog/" class="pm-btn">Blog</a>
+      <a href="/about/" class="pm-btn outline">Giới thiệu</a>
+    </div>
+  </div>
+
+  <!-- ẢNH DƯỚI -->
+  <div class="pm-hero-image">
+    <img src="/img/anhdaidien.png" alt="Nhật Duy">
+  </div>
+
+</section>
+
+<style>
+/* ===== HERO DỌC: TEXT TRÊN – IMAGE DƯỚI ===== */
+
+.pm-hero-vertical{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+
+/* TEXT */
+.pm-tag{
+  letter-spacing: 4px;
+  font-weight: 700;
+  opacity: .6;
+  margin-bottom: 16px;
+}
+
+.pm-title{
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+}
+
+.pm-sub{
+  font-size: 16px;
+  opacity: .8;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* BUTTON */
+.pm-actions{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.pm-btn{
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.pm-btn:not(.outline){
+  background: var(--primary);
+  color: var(--theme);
+}
+
+/* IMAGE */
+.pm-hero-image img{
+  width: min(800px, 100%);
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 16px 40px rgba(0,0,0,.25);
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+  .pm-hero-vertical{
+    padding: 50px 18px;
+  }
+  .pm-title{
+    font-size: 34px;
+  }
+}
+</style>
+
+{{ end }}

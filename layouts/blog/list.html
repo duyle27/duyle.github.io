@@ -1,0 +1,40 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}
+    <div class="post-content">{{ . }}</div>
+  {{ end }}
+</header>
+
+<div class="pm-grid">
+  {{ $pages := .Pages }}
+  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+
+  {{ range .Pages.ByWeight }}
+    <article class="pm-card">
+      <a class="pm-card-link" href="{{ .RelPermalink }}">
+        <div class="pm-meta">
+          <span class="pm-date">{{ .Date.Format "02 . 01 . 2006" }}</span>
+
+          {{ with .Params.tags }}
+            {{ $t := index . 0 }}
+            <span class="pm-tag">#{{ $t }}</span>
+          {{ end }}
+        </div>
+
+        <h2 class="pm-title">{{ .Title }}</h2>
+
+        {{ with .Summary }}
+          <p class="pm-summary">{{ . | plainify }}</p>
+        {{ else }}
+          {{ with .Params.summary }}
+            <p class="pm-summary">{{ . }}</p>
+          {{ end }}
+        {{ end }}
+
+        <span class="pm-more">Đọc ngay ⟶</span>
+      </a>
+    </article>
+  {{ end }}
+</div>
+{{ end }}
