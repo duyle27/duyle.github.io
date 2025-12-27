@@ -6,30 +6,15 @@ draft: false
 tags: ["Java", "Network"]
 summary: "GIỚI THIỆU HỌC PHẦN."
 ---
+Trong lập trình mạng, trước khi kết nối, ta phải biết "địa chỉ nhà" (IP) của mình và đối phương. Java cung cấp class 
 
-Trong lập trình mạng, trước khi kết nối, ta phải biết "địa chỉ nhà" (IP) của mình và đối phương. Java cung cấp class `InetAddress` để làm việc này.
+![Hiệu ứng Dunning–Kruger trong quá trình học tập](/img/dunning-kruger.png)
 
----
+*Hình 1.1: Hiệu ứng Dunning–Kruger – mức độ tự tin thay đổi theo kinh nghiệm học tập*
 
-## Code lấy IP của máy (Localhost)
+## Góc nhìn học tập: Hiệu ứng Dunning–Kruger
 
-```java
-import java.net.InetAddress;
-
-public class MyIP {
-    public static void main(String[] args) {
-        try {
-            InetAddress myIP = InetAddress.getLocalHost();
-            System.out.println("Tên máy: " + myIP.getHostName());
-            System.out.println("Địa chỉ IP: " + myIP.getHostAddress());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
----
-
+`InetAddress` để làm việc này.
 ## Địa chỉ IP là gì trong lập trình mạng?
 
 **IP (Internet Protocol Address)** là địa chỉ định danh của một thiết bị khi tham gia vào mạng máy tính.  

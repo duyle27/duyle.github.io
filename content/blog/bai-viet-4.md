@@ -28,6 +28,13 @@ Trong Internet, địa chỉ kết nối thường bao gồm:
 
 ## DNS – Domain Name System
 
+![DNS ánh xạ tên miền sang địa chỉ IP](/img/dns-overview.png)
+
+Hình 4.1 – Mô hình hoạt động của DNS (Domain Name System)
+
+Client gửi yêu cầu phân giải tên miền đến DNS Server, DNS trả về địa chỉ IP tương ứng để client kết nối đến server đích.*
+
+
 Con người dễ nhớ tên miền hơn các dãy số IP.
 
 DNS (Domain Name System) có nhiệm vụ ánh xạ **tên miền sang địa chỉ IP**, giúp client tìm đúng server cần kết nối.
@@ -37,10 +44,24 @@ Ví dụ:
 - www.cs.yale.edu tương ứng với 128.36.229.30
 
 Nhờ DNS, người dùng không cần ghi nhớ địa chỉ IP khi truy cập Internet.
+![Hình 4.2 – Cấu trúc phân cấp tên miền DNS](/img/dns-hierarchy.png)
+
+*Hình 4.2 minh họa cấu trúc phân cấp của hệ thống DNS, bao gồm Root Domain, các Top-Level Domain (com, edu, org, vn, …) và các tên miền con phía dưới.  
+
+Cấu trúc phân cấp này giúp DNS hoạt động hiệu quả và dễ mở rộng trên toàn Internet.*
+
+
 
 ---
 
 ## Địa chỉ IPv4
+
+![Hình 4.3 – Quản lý Zone trong hệ thống DNS](/img/dns-zone.png)
+
+*Hình 4.3 minh họa khái niệm Zone trong DNS.  
+
+Mỗi Zone là một phần của không gian tên miền và được quản lý bởi một DNS Server có thẩm quyền.  
+Việc chia DNS thành các Zone giúp hệ thống dễ quản lý, phân quyền và tăng độ tin cậy.*
 
 IPv4 là dạng địa chỉ phổ biến, gồm 32 bit, thường được viết thành bốn nhóm số.
 

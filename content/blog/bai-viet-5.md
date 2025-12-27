@@ -46,6 +46,16 @@ TCP cung cấp các cơ chế quan trọng:
 ---
 
 ## Cơ chế hoạt động của TCP
+![Hình 5.1 – Socket TCP và cơ chế bắt tay 3 bước](images/tcp-socket-handshake.png)
+
+**Hình 5.1 – Socket TCP và cơ chế bắt tay 3 bước (Three-way Handshake)**
+
+Hình minh họa quá trình thiết lập kết nối TCP giữa Client và Server.  
+Client khởi tạo `client socket` và gửi yêu cầu kết nối.  
+Server lắng nghe qua `welcoming socket`, sau đó tạo `connection socket` để giao tiếp riêng với client.
+
+Sau khi kết nối được thiết lập thành công, hai bên trao đổi dữ liệu hai chiều thông qua các luồng byte.
+
 
 Quá trình giao tiếp TCP gồm ba giai đoạn chính:
 
@@ -81,6 +91,21 @@ Quá trình giao tiếp gồm:
 ---
 
 ## Socket trong Java
+![Hình 5.2 – Các bước kết nối TCP Socket giữa Client và Server](images/tcp-steps.png)
+
+**Hình 5.2 – Các bước kết nối TCP Socket giữa Client và Server**
+
+Quy trình kết nối TCP gồm các bước:
+
+1. Server tạo `ServerSocket` và chờ kết nối
+2. Client tạo `Socket` và gửi yêu cầu kết nối
+3. Server chấp nhận kết nối bằng `accept()`
+4. Hai bên trao đổi dữ liệu qua `InputStream` và `OutputStream`
+5. Đóng socket sau khi hoàn tất
+
+Mỗi client khi kết nối sẽ có một `Socket` riêng, giúp server xử lý đồng thời nhiều client.
+
+
 
 Trong Java, **Socket** đại diện cho **điểm cuối giao tiếp** giữa client và server khi sử dụng TCP.
 
